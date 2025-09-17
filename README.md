@@ -32,6 +32,52 @@ Instead of modifying the model architecture, the focus is entirely on **how data
    - Highlights how **data augmentation** improves robustness.
 
 ---
+🏋️ Running the Project
+Option 1: Use Pre-trained Models
 
-## 📂 Repository Structure
+Fastest way to reproduce results:
 
+# Load pretrained models & histories
+balanced_model = tf.keras.models.load_model('./models/balanced_model')
+with open('./histories/balanced_history.pkl', "rb") as f:
+    balanced_history = pickle.load(f)
+
+Option 2: Train Models Yourself
+
+Requires GPU (e.g., Google Colab, local CUDA setup).
+
+balanced_model = lab_utils.create_model()
+balanced_history = balanced_model.fit(
+    train_dataset_final,
+    epochs=10,
+    validation_data=dev_dataset_final
+)
+🛠️ Tools & Libraries
+
+TensorFlow / Keras
+ – Model training & augmentation
+
+NumPy
+ – Array processing
+
+scikit-learn
+ – Metrics & evaluation
+
+Matplotlib
+ – Visualization
+
+Google Colab
+ – GPU training (optional)
+
+📌 Notes
+
+Pre-trained models are provided to save time (recommended).
+
+Training from scratch requires GPU runtime (CPU is too slow).
+
+Colab GPU availability may vary (retry if resources are busy).
+
+✨ Acknowledgments
+
+This project is inspired by data-centric AI principles taught in Andrew Ng’s Machine Learning Specialization (Coursera)
+.
